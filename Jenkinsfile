@@ -10,22 +10,22 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/ankitagrawal26/ansible-jenkins.git'
+                git branch: 'main', url: 'https://github.com/ankitagrawal26/CICD_automation_Demo2.git'
             }
         }
         stage('Docker Image') {
             steps {
                 script {
-                    sh '''docker build -t demo-auto .'''
+                    sh '''docker build -t demo-automation .'''
                  }
             }
         }
         stage('Deployment') {
             steps {
                 script {
-                    sh ''' docker stop bslc'''
-                    sh ''' docker rm bslc'''
-                    sh ''' docker run -d -p 80:80 --name bslc demo-auto'''
+                    sh ''' docker stop bslco'''
+                    sh ''' docker rm bslco'''
+                    sh ''' docker run -d -p 80:80 --name bslc demo-automation'''
                  }
             }
         }
