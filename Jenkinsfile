@@ -23,9 +23,8 @@ pipeline {
         stage('Deployment') {
             steps {
                 script {
-                    sh ''' docker stop bslco'''
-                    sh ''' docker rm bslco'''
-                    sh ''' docker run -d -p 80:80 --name bslc demo-automation'''
+                    
+                    sh ''' docker run -d -p 90:90 --name bslco demo-automation'''
                  }
             }
         }
